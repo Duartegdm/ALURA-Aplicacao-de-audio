@@ -1,55 +1,49 @@
 package domain;
 
-public class Podcast extends Audio{
+public class Podcast extends Audio {
     private int episodio;
 
     public Podcast(String titulo, int duracao, int episodio) {
         super(titulo, duracao);
+        this.episodio = episodio;
     }
 
     @Override
     public void exibirInfo() {
-        super.exibirInfo();
+        System.out.println("-----Podcast-----");
+        System.out.println("Nome: " + this.titulo);
+        System.out.println("Episódio: " + this.episodio);
+        if (this.duracao >= 60) {
+            System.out.printf("Duração: %dh+%n", (this.duracao / 60));
+        } else{
+            System.out.printf("Duração: %dmin%n", this.duracao);
+        }
+        System.out.println("Total de Reproduções: " + this.totalDeReproducoes);
+        System.out.println("Curtidas: " + this.curtidas);
+        System.out.println("Classificação: " + this.classificacao);
+        System.out.println("-----------------");
     }
 
     @Override
     public void reproduzir() {
-        super.reproduzir();
-    }
-
-    @Override
-    public int getTotalDeReproducoes() {
-        return super.getTotalDeReproducoes();
+        System.out.printf("Reproduzindo '%s #%d'%n", this.titulo, this.episodio);
+        this.totalDeReproducoes++;
     }
 
     @Override
     public void curtir() {
-        super.curtir();
-    }
-
-    @Override
-    public int getCurtidas() {
-        return super.getCurtidas();
+        System.out.printf("'%s #%d' adicionado aos podcasts curtidos%n", this.getTitulo(), this.episodio);
+        this.curtidas++;
     }
 
     @Override
     public void classificar(int nota) {
-        super.classificar(nota);
+        if (nota >= 0 && nota <= 10) {
+            this.totalDeClassificacoes++;
+            System.out.printf("Você classificou '%s #%d' com a nota: %d%n", this.titulo, this.episodio, nota);            this.notaTotal += nota;
+            classificacao = this.notaTotal / this.totalDeClassificacoes;
+        } else {
+            System.out.println("A nota deve estar entre 0 a 10");
+        }
     }
-
-    @Override
-    public int getClassificacao() {
-        return super.getClassificacao();
-    }
-
-    @Override
-    public String getTitulo() {
-        return super.getTitulo();
-    }
-
-    @Override
-    public int getDuracao() {
-        return super.getDuracao();
-    }
-
 }

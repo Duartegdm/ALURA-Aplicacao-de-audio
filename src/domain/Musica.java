@@ -1,6 +1,6 @@
 package domain;
 
-public class Musica extends Audio{
+public class Musica extends Audio {
     private String album;
     private String artista;
 
@@ -12,42 +12,19 @@ public class Musica extends Audio{
 
     @Override
     public void exibirInfo() {
-        super.exibirInfo();
-    }
-
-    @Override
-    public void reproduzir() {
-        super.reproduzir();
-    }
-
-    @Override
-    public int getTotalDeReproducoes() {
-        return super.getTotalDeReproducoes();
+        System.out.println("-----Música-----");
+        System.out.println("Nome: " + this.titulo);
+        System.out.printf("Duração: %dmin%n", this.duracao);
+        System.out.println("Total de Reproduções: " + this.duracao);
+        System.out.println("Curtidas: " + this.curtidas);
+        System.out.println("Classificação: " + this.classificacao);
+        System.out.println("----------------");
     }
 
     @Override
     public void curtir() {
         System.out.printf("'%s' de '%s' adicionado aos curtidos%n", this.getTitulo(), this.artista);
-        curtidas += 1;
+        this.curtidas++;
     }
 
-    @Override
-    public int getCurtidas() {
-        return super.getCurtidas();
-    }
-
-    @Override
-    public void classificar(int nota) {
-        super.classificar(nota);
-    }
-
-    @Override
-    public int getClassificacao() {
-        return super.getClassificacao();
-    }
-
-    @Override
-    public int getDuracao() {
-        return super.getDuracao();
-    }
 }

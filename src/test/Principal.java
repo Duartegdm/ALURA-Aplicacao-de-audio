@@ -9,18 +9,19 @@ public class Principal{
         Audio audio = new Audio("music_001281.mp4", 3);
         audio.classificar(10);
         audio.classificar(5);
+        audio.reproduzir();
+        audio.curtir();
+        audio.exibirInfo();
 
         Musica tenhaDo = new Musica("Tenha dó", 2, "Los Hermanos", "Los Hermanos");
         tenhaDo.reproduzir();
         tenhaDo.reproduzir();
-        tenhaDo.getTotalDeReproducoes();
         tenhaDo.curtir();
-        tenhaDo.getCurtidas();
         tenhaDo.classificar(9);
         tenhaDo.classificar(4);
-        tenhaDo.getClassificacao();
+        tenhaDo.exibirInfo();
 
-        Podcast hipsters = new Podcast("Hipsters Podcast", 60, 1);
+        Podcast hipsters = new Podcast("Hipsters Podcast", 119, 1);
         hipsters.curtir();
         hipsters.reproduzir();
         hipsters.classificar(9);

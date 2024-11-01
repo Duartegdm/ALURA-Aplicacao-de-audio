@@ -6,8 +6,8 @@ public class Audio {
     protected int totalDeReproducoes;
     protected int curtidas;
     protected int classificacao;
-    private int notaTotal;
-    private int totalDeClassificacoes;
+    protected int notaTotal;
+    protected int totalDeClassificacoes;
 
     public Audio(String titulo, int duracao) {
         this.titulo = titulo;
@@ -17,20 +17,21 @@ public class Audio {
     public void exibirInfo() {
         System.out.println("---Arquivo de áudio---");
         System.out.println("Nome: "+this.titulo);
-        System.out.println("Duração: "+this.duracao);
+        System.out.printf("Duração: %dmin%n", this.duracao);
         System.out.println("Total de Reproduções: "+this.duracao);
         System.out.println("Curtidas: "+this.curtidas);
         System.out.println("Classificação: "+this.classificacao);
+        System.out.println("----------------------");
     }
 
     public void curtir() {
-        System.out.println("Audio adicionado aos curtidos");
-        curtidas += 1;
+        System.out.printf("%s adicionado aos curtidos%n", this.titulo);
+        this.curtidas++;
     }
 
     public void reproduzir() {
         System.out.printf("Reproduzindo '%s'%n", this.titulo);
-        this.totalDeReproducoes += 1;
+        this.totalDeReproducoes++;
     }
 
     public void classificar(int nota) {
